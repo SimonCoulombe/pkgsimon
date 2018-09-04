@@ -8,6 +8,14 @@
 \description{
 This packages contains functions that I frequently reuse.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/SimonCoulombe/pkgsimon}
+  \item Report bugs at \url{https://github.com/SimonCoulombe/pkgsimon/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Simon Coulombe \email{simoncoulombe@gmail.com}
 
