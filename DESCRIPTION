@@ -1,0 +1,13 @@
+Package: pkgsimon
+Title: Les fonctions de Simon
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Simon",
+           family = "Coulombe",
+           role = c("aut", "cre"),
+           email = "simoncoulombe@gmail.com")
+Description: This packages contains functions that I frequently reuse.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.0
