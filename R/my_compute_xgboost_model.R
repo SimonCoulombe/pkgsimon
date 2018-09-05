@@ -1,3 +1,6 @@
+#' @title my_compute_xgboost_model()
+#' @export
+
 my_compute_xgboost_model <- function(
   params = list(),
   data,   # categorical variables have been replaced by dummies.

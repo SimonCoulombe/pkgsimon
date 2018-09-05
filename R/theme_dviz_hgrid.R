@@ -1,7 +1,7 @@
 #' @title theme_dviz_hgrid()
 #'
 #' @description Horizontal lines only - ggplot theme taken from https://github.com/clauswilke/dataviz/blob/master/R/themes.R
-
+#' @export
 theme_dviz_hgrid <- function(font_size = 14, font_family = "") {
   color = "grey90"
   line_size = 0.5

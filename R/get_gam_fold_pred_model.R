@@ -4,7 +4,7 @@
 #' @param data la base de données (categorical variables have been replaced by dummies.)
 #' @param nb_fold le nombre de fold dans notre validation croisée
 #' @param formula la formule, probablement générée par get_gam_formula()
-
+#' @export
 
 
 

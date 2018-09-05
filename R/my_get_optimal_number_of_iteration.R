@@ -11,7 +11,7 @@
 #' @param contraintes vecteur des contraints de monotonicité
 #' @param seed le numéro de seed
 #' @param maxiter le nombre maximum d'arbres à construire
-
+#' @export
 
 my_get_optimal_number_of_iteration <-   function(
   params = list(),

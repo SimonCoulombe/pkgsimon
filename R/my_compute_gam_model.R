@@ -1,4 +1,5 @@
 #' @title my_compute_gam_model()
+#' @export
 
 my_compute_gam_model <- function(
   data,   # categorical variables have been replaced by dummies.

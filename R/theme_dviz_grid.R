@@ -1,7 +1,7 @@
 #' @title theme_dviz_grid()
 #'
 #' @description  grid lines along major axis ticks, no axes - ggplot theme taken from https://github.com/clauswilke/dataviz/blob/master/R/themes.R
-
+#' @export
 # grid lines along major axis ticks, no axes
 theme_dviz_grid <- function(font_size = 14, font_family = "") {
   color = "grey90"

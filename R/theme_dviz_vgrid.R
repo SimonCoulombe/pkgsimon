@@ -1,7 +1,7 @@
 #' @title theme_dviz_vgrid()
 #'
 #' @description vertical lines only - ggplot theme taken from https://github.com/clauswilke/dataviz/blob/master/R/themes.R
-
+#' @export
 # vertical grid lines only
 theme_dviz_vgrid <- function(font_size = 14, font_family = "") {
   color = "grey90"

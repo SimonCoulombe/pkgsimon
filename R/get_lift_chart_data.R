@@ -9,22 +9,7 @@
 #' @param obs Variable réponse observée (défaut = gperts)
 #' @keywords lift chart
 #' @export
-#' @examples
-#' ## lift chart vs modèle actu
-#' zz <- get_lift_chart_data(model_data  ,
-#' expo= "nb_day",
-#' sort_by = "ratio_algo3",
-#' pred=  "pred",
-#' obs = "gperts",
-#' nb = 10)
-#'  lift chart vs no model
-#' zz <- get_lift_chart_data(model_data  %>%
-#' mutate( rate = pred_algo3 / nb_day) ,
-#' expo= "nb_day",
-#' sort_by = "rate",
-#' pred=  "pred_algo3",
-#' obs = "gperts",
-#' nb = 10)
+
 
 
 get_lift_chart_data <- function(table, sort_by = "rate", expo = NULL, nb = 10,

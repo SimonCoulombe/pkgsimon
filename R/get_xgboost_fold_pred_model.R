@@ -9,7 +9,7 @@
 #' @param nb_fold le nombre de fold dans notre validation croisée
 #' @param nround le nombre d'arbres à créer avec le xgboost
 #' @param contraintes vecteur des contraints de monotonicité
-
+#' @export
 
 get_xgboost_fold_pred_model <- function(
   params = list(),
