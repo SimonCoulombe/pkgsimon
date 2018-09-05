@@ -1,3 +1,5 @@
+#' @title my_compute_gam_model()
+
 my_compute_gam_model <- function(
   data,   # categorical variables have been replaced by dummies.
   label_var,
