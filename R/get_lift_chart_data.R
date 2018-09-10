@@ -30,9 +30,6 @@ get_lift_chart_data <- function(table, sort_by = "rate", expo = NULL, nb = 10,
   cum_expo <- sum(result$expo)
   cum_obs <- sum(result$obs)
   mean_rate <- cum_obs / cum_expo
-  # if (is.null(expo)){ cum_expo <- dim(table)[1]}
-  # else {cum_expo = sum( table %>% pull(!!expo))}
-  print(cum_expo)
 
   breaks <- seq(0, cum_expo, length.out = nb + 1) %>% head(-1) %>% c(Inf) %>% unique
 
