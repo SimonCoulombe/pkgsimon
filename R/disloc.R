@@ -54,7 +54,7 @@ disloc <- function(data, pred1, pred2, expo, obs, nb = 10,
       ),
     dd %>% group_by(groupe) %>%
       summarise_at(
-        fexpo(sum(.) / sum(!!expo_var)),
+        funs(sum(.) / sum(!!expo_var)),
         .vars = vars(!!obs_var, !!pred1_var, !!pred2_var)
       ) %>%
       ungroup,
@@ -92,7 +92,7 @@ disloc <- function(data, pred1, pred2, expo, obs, nb = 10,
     mutate(poids = abs(1 - ratio_moyen)) %>%
     summarise_at(
       vars(!!pred1_var, !!pred2_var),
-      fexpo(weighted.mean((. - !!obs_var)^2, w = poids) %>% sqrt())
+      funs(weighted.mean((. - !!obs_var)^2, w = poids) %>% sqrt())
     ) %>% summarise(ratio_distance = !!pred2_var / !!pred1_var) %>%
     as.numeric()
 
