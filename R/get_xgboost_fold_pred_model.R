@@ -7,6 +7,7 @@
 #' @param feature_vars le vecteur des noms des variables explicatives
 #' @param offset_var  le nom de la variable qui sera mise dans le base_margin (ex:exposure), default= NULL
 #' @param nb_fold le nombre de fold dans notre validation croisée
+#' @param seed le numéro de seed
 #' @param nround le nombre d'arbres à créer avec le xgboost
 #' @param contraintes vecteur des contraints de monotonicité
 #' @export
@@ -18,13 +19,33 @@ get_xgboost_fold_pred_model <- function(
   feature_vars,
   offset_var = NULL,
   nb_fold = 10,
+  fold_group_var = NULL,
+  seed = 8484,
   nround = 1000,
   contraintes= NULL) {
 
+  set.seed(seed)
+
   result_get_xgboost_fold_pred_model <- list()
-  myfolds <- caret::createFolds(
-    data %>% pull(label_var),
-    k = nb_fold, list = FALSE)
+
+  if(is.null(fold_group_var)){
+    myfolds <- caret::createFolds(
+      data %>% pull(label_var),
+      k = nb_fold, list = FALSE)}
+  else{
+
+    unique_group_vars2 <- data  %>% select(fold_group_var)
+    unique_group_vars <-  distinct(unique_group_vars2)
+
+    myfolds_group <- caret::createFolds(
+      unique_group_vars %>% pull(fold_group_var),
+      k = 10, list = FALSE)
+
+
+    unique_group_vars$fold <- myfolds_group
+    pouet <- data %>% select(fold_group_var) %>% left_join(unique_group_vars)
+    myfolds <- pouet$fold
+  }
 
   # inspired by  Codes/Fonctions/get_expected_lift.R
   map_result <- seq_len(nb_fold) %>% purrr::map(~{
