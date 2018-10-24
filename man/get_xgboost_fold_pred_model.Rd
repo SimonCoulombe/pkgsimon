@@ -5,7 +5,8 @@
 \title{get_xgboost_fold_pred_model()}
 \usage{
 get_xgboost_fold_pred_model(params = list(), data, label_var,
-  feature_vars, offset_var = NULL, nb_fold = 10, nround = 1000,
+  feature_vars, offset_var = NULL, nb_fold = 10,
+  fold_group_var = NULL, seed = 8484, nround = 1000,
   contraintes = NULL)
 }
 \arguments{
@@ -20,6 +21,8 @@ get_xgboost_fold_pred_model(params = list(), data, label_var,
 \item{offset_var}{le nom de la variable qui sera mise dans le base_margin (ex:exposure), default= NULL}
 
 \item{nb_fold}{le nombre de fold dans notre validation croisée}
+
+\item{seed}{le numéro de seed}
 
 \item{nround}{le nombre d'arbres à créer avec le xgboost}
 

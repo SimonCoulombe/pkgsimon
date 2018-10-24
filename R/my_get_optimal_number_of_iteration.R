@@ -27,9 +27,24 @@ my_get_optimal_number_of_iteration <-   function(
 
   set.seed(seed)
 
-  myfolds <- caret::createFolds(
-    data %>% pull(label_var),
-    k = nb_fold, list = FALSE)
+  if(is.null(fold_group_var)){
+    myfolds <- caret::createFolds(
+      data %>% pull(label_var),
+      k = nb_fold, list = FALSE)}
+  else{
+
+    unique_group_vars2 <- data  %>% select(fold_group_var)
+    unique_group_vars <-  distinct(unique_group_vars2)
+
+    myfolds_group <- caret::createFolds(
+      unique_group_vars %>% pull(fold_group_var),
+      k = 10, list = FALSE)
+
+
+    unique_group_vars$fold <- myfolds_group
+    pouet <- data %>% select(fold_group_var) %>% left_join(unique_group_vars)
+    myfolds <- pouet$fold
+  }
 
   result_fold <- seq_len(nb_fold) %>% purrr::map_df(~{
     message(paste0("calcul du fold ", .x))
