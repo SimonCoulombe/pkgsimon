@@ -25,12 +25,3 @@ get_partial_dependence_xgb_2d(xgb_model, feature_vars, model_data,
 \description{
 Cette fonction calcule les dépendances partielles en 2D pour 2 variables d'un modèles xgboost après avoir enlevé les outliers.
 }
-\examples{
-zzzz3 <- get_partial_dependence_xgb_2d(xgb_model = resBoost,
-                                      feature_vars = c("brake_intensity", "number_of_brake", "number_of_accel", "distraction"),
-                                      model_data = model_data,
-                                      pdp_var1 = "braking_combined_roadtype0",
-                                      pdp_var2 = "brake_intensity",
-                                      offset_var = "pred_saison",
-                                      nquantiles = 5)
-}
