@@ -1,6 +1,7 @@
 #' @title get_partial_dependence_xgb_2d()
 #'
 #' @description Cette fonction calcule les dépendances partielles en 2D pour 2 variables d'un modèles xgboost après avoir enlevé les outliers.
+#'
 #' @param xgb_model  le modèle xgboost qui va être prédit
 #' @param feature_vars un vecteur caractère avec les noms des variables prédictives du modèle
 #' @param pdp_var1 la premiere variable pour la pdp (caractère)
