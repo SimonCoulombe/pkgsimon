@@ -16,7 +16,7 @@
 #'                                       pdp_var2 = "brake_intensity",
 #'                                       offset_var = "pred_saison",
 #'                                       nquantiles = 5)
-#'  @export
+#' @export
 
 get_partial_dependence_xgb_2d <- function(xgb_model, feature_vars, model_data, pdp_var1, pdp_var2, offset_var= NULL, nquantiles = 5) {
   message("Début du traitement\t\t", Sys.time())

@@ -33,5 +33,4 @@ zzzz3 <- get_partial_dependence_xgb_2d(xgb_model = resBoost,
                                       pdp_var2 = "brake_intensity",
                                       offset_var = "pred_saison",
                                       nquantiles = 5)
- @export
 }
