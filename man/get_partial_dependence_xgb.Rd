@@ -4,7 +4,7 @@
 \alias{get_partial_dependence_xgb}
 \title{get_partial_dependence_xgb()}
 \usage{
-get_partial_dependence_xgb(xgb_model, pdp_vars, feature_vars,
+get_partial_dependence_xgb(xgb_model, pdp_vars = NULL, feature_vars,
   offset_var = NULL, model_data, nquantiles = 21)
 }
 \arguments{

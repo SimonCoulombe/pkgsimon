@@ -17,7 +17,7 @@
 #'                                     nquantiles = 11)
 #' @export
 
-get_partial_dependence_xgb <- function(xgb_model,pdp_vars,  feature_vars, offset_var = NULL,  model_data, nquantiles = 21) {
+get_partial_dependence_xgb <- function(xgb_model,pdp_vars = NULL,  feature_vars, offset_var = NULL,  model_data, nquantiles = 21) {
   message("Début du traitement\t\t", Sys.time())
 
   if (is.null(pdp_vars)){pdp_vars <- feature_vars} # si on ne spécifie pas de pdp_vars, alors on les fait toutes.
