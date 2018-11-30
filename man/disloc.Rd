@@ -23,6 +23,8 @@ disloc(data, pred1, pred2, expo, obs, nb = 10, pred1_lab = "pred1",
 
 \item{y_format}{Fonction utilisée pour formater l'axe des y dans le graphique (par exemple percent_format() ou dollar_format() du package scales)}
 
+\item{graphe_title}{une string qui donne le titre du modèle}
+
 \item{pred1}{prediction of second model}
 
 \item{pred1_label}{Label pour la première prédiction dans le graphique}

@@ -11,6 +11,7 @@
 #' @param pred2_label Label pour la deuxième prédiction dans le graphique
 #' @param y_label Label pour la valeur réalisée dans le graphique
 #' @param y_format Fonction utilisée pour formater l'axe des y dans le graphique (par exemple percent_format() ou dollar_format() du package scales)
+#' @param graphe_title une string qui donne le titre du modèle
 #' @export
 
 disloc <- function(data, pred1, pred2, expo, obs, nb = 10,
