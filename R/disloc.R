@@ -85,7 +85,8 @@ if (is.null(graphe_title)  ){
   pl <- plotdata %>%
     ggplot(aes(groupe, variable, color = key, linetype = key)) +
     geom_line() + geom_point() +
-    scale_color_manual(name = "", values = c("black", "dark green", "light green")) +
+    pkgsimon::theme_dviz_grid() +  
+    scale_color_manual(name = "", values = c(cbbPalette)) +
     scale_linetype_manual(name = "", values = c(3, 1, 1)) +
     scale_x_continuous(breaks = seq_along(dd$labs), labels = dd$labs) +
     xlab("ratio entre les prédictions") + ylab(y_label) +
@@ -95,7 +96,8 @@ if (is.null(graphe_title)  ){
   pl <- plotdata %>%
     ggplot(aes(groupe, variable, color = key, linetype = key)) +
     geom_line() + geom_point() +
-    scale_color_manual(name = "", values = c("black", "dark green", "light green")) +
+    pkgsimon::theme_dviz_grid() +  
+    scale_color_manual(name = "", values = c(cbbPalette)) +
     scale_linetype_manual(name = "", values = c(3, 1, 1)) +
     scale_x_continuous(breaks = seq_along(dd$labs), labels = dd$labs) +
     xlab("ratio entre les prédictions") + ylab(y_label) +
