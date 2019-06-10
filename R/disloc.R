@@ -4,7 +4,7 @@
 #' @param data data.frame  source
 #' @param pred1 prediction of first model
 #' @param pred1 prediction of second model
-#' @param expo exposure
+#' @param expo exposure var
 #' @param obs observed result
 #' @param nb nombre de quantils créés
 #' @param pred1_lab Label pour la première prédiction dans le graphique

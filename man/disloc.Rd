@@ -13,7 +13,7 @@ disloc(data, pred1, pred2, expo, obs, nb = 10, pred1_lab = "pred1",
 
 \item{pred1}{prediction of first model}
 
-\item{expo}{exposure}
+\item{expo}{exposure var}
 
 \item{obs}{observed result}
 

@@ -4,7 +4,7 @@
 \alias{add_equal_weight_group}
 \title{add_equal_weight_group()}
 \usage{
-add_equal_weight_group(table, sort_by, expo,
+add_equal_weight_group(table, sort_by, expo = NULL,
   group_variable_name = "groupe", nb = 10)
 }
 \arguments{
