@@ -8,7 +8,7 @@ theme_dviz_grid <- function(font_size = 14, font_family = "") {
   line_size = 0.5
 
   # Starts with theme_cowplot and then modify some parts
-  theme_cowplot(font_size = font_size, font_family = font_family) %+replace%
+  cowplot::theme_cowplot(font_size = font_size, font_family = font_family) %+replace%
     theme(
       # make horizontal grid lines
       panel.grid.major   = element_line(colour = color,
