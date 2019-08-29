@@ -17,7 +17,7 @@
 disloc <- function(data, pred1, pred2, expo, obs, nb = 10,
                    pred1_lab = "pred1", pred2_lab = "pred2",
                    y_label= "sinistralité",
-                   y_format = percent_format(),
+                   y_format = scales::percent_format,
                    graphe_title = NULL) {
   # obligé de mettre les variables dans un enquo pour pouvoir les utiliser dans dplyr
   pred1_var <- enquo(pred1)
@@ -79,36 +79,16 @@ disloc <- function(data, pred1, pred2, expo, obs, nb = 10,
     )) %>%
     mutate(key = factor(key, levels = c("réalisé", pred1_lab, pred2_lab), ordered = TRUE))
 
-
-if (is.null(graphe_title)){
-
   pl <- plotdata %>%
     ggplot(aes(groupe, variable, color = key, linetype = key)) +
     geom_line() + geom_point() +
-    pkgsimon::theme_dviz_grid() +
+    pkgsimon::theme_dviz_grid()+
     scale_color_manual(name = "", values = c(cbbPalette)) +
     scale_linetype_manual(name = "", values = c(3, 1, 1)) +
     scale_x_continuous(breaks = seq_along(dd$labs), labels = dd$labs) +
     xlab("ratio entre les prédictions") + ylab(y_label) +
     theme(axis.text.x = element_text(angle = 30, hjust = 1, vjust = 1)) +
     scale_y_continuous(labels =  y_format())
-} else {
-  pl <- plotdata %>%
-    ggplot(aes(groupe, variable, color = key, linetype = key)) +
-    geom_line() + geom_point() +
-    pkgsimon::theme_dviz_grid() +
-    scale_color_manual(name = "", values = c(cbbPalette)) +
-    scale_linetype_manual(name = "", values = c(3, 1, 1)) +
-    scale_x_continuous(breaks = seq_along(dd$labs), labels = dd$labs) +
-    xlab("ratio entre les prédictions") + ylab(y_label) +
-    theme(axis.text.x = element_text(angle = 30, hjust = 1, vjust = 1)) +
-    scale_y_continuous(labels =  y_format()) +
-    ggtitle(graphe_title)
-
-
-
-}
-
 
   # écart au réalisé, pondéré
   ecart <- dd %>%
