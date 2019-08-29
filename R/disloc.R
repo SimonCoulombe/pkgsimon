@@ -80,7 +80,7 @@ disloc <- function(data, pred1, pred2, expo, obs, nb = 10,
     mutate(key = factor(key, levels = c("réalisé", pred1_lab, pred2_lab), ordered = TRUE))
 
 
-if (is.null(graphe_title)  ){
+if (is.null(graphe_title)){
 
   pl <- plotdata %>%
     ggplot(aes(groupe, variable, color = key, linetype = key)) +
