@@ -4,11 +4,11 @@
 #' @param data data.frame  source
 #' @param pred1 prediction of first model
 #' @param pred1 prediction of second model
-#' @param expo exposure
+#' @param expo exposure var
 #' @param obs observed result
 #' @param nb nombre de quantils créés
-#' @param pred1_label Label pour la première prédiction dans le graphique
-#' @param pred2_label Label pour la deuxième prédiction dans le graphique
+#' @param pred1_lab Label pour la première prédiction dans le graphique
+#' @param pred2_lab Label pour la deuxième prédiction dans le graphique
 #' @param y_label Label pour la valeur réalisée dans le graphique
 #' @param y_format Fonction utilisée pour formater l'axe des y dans le graphique (par exemple percent_format() ou dollar_format() du package scales)
 #' @param graphe_title une string qui donne le titre du modèle
@@ -85,7 +85,8 @@ if (is.null(graphe_title)){
   pl <- plotdata %>%
     ggplot(aes(groupe, variable, color = key, linetype = key)) +
     geom_line() + geom_point() +
-    scale_color_manual(name = "", values = c("black", "dark green", "light green")) +
+    pkgsimon::theme_dviz_grid() +
+    scale_color_manual(name = "", values = c(cbbPalette)) +
     scale_linetype_manual(name = "", values = c(3, 1, 1)) +
     scale_x_continuous(breaks = seq_along(dd$labs), labels = dd$labs) +
     xlab("ratio entre les prédictions") + ylab(y_label) +
@@ -95,7 +96,8 @@ if (is.null(graphe_title)){
   pl <- plotdata %>%
     ggplot(aes(groupe, variable, color = key, linetype = key)) +
     geom_line() + geom_point() +
-    scale_color_manual(name = "", values = c("black", "dark green", "light green")) +
+    pkgsimon::theme_dviz_grid() +
+    scale_color_manual(name = "", values = c(cbbPalette)) +
     scale_linetype_manual(name = "", values = c(3, 1, 1)) +
     scale_x_continuous(breaks = seq_along(dd$labs), labels = dd$labs) +
     xlab("ratio entre les prédictions") + ylab(y_label) +

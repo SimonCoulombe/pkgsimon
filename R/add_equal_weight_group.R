@@ -9,8 +9,6 @@
 #' @export
 
 
-
-
 add_equal_weight_group <- function(table, sort_by, expo = NULL, group_variable_name = "groupe", nb = 10) {
   sort_by_var <- enquo(sort_by)
   groupe_variable_name_var <- enquo(group_variable_name)

@@ -2,3 +2,4 @@
 ^LICENSE\.md$
 ^pkgsimon\.Rproj$
 ^\.Rproj\.user$
+^data-raw$
