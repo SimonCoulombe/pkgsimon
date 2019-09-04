@@ -5,9 +5,9 @@
 \title{disloc()}
 \usage{
 disloc(data, pred1, pred2, expo, obs, nb = 10, pred1_lab = "pred1",
-  pred2_lab = "pred2", y_label = "sinistralité",
-  y_format = scales::number_format(big.mark = " ", decimal.mark = ","),
-  graphe_title = NULL)
+  pred2_lab = "pred2", x_label = "ratio entre les prédictions",
+  y_label = "sinistralité", y_format = scales::number_format(big.mark
+  = " ", decimal.mark = ","))
 }
 \arguments{
 \item{data}{data.frame  source}
@@ -24,11 +24,11 @@ disloc(data, pred1, pred2, expo, obs, nb = 10, pred1_lab = "pred1",
 
 \item{pred2_lab}{Label pour la deuxième prédiction dans le graphique}
 
+\item{x_label}{Label pour la valeur réalisée dans le graphique}
+
 \item{y_label}{Label pour la valeur réalisée dans le graphique}
 
 \item{y_format}{Fonction utilisée pour formater l'axe des y dans le graphique (par exemple percent_format() ou dollar_format() du package scales)}
-
-\item{graphe_title}{une string qui donne le titre du modèle}
 
 \item{pred1}{prediction of second model}
 }

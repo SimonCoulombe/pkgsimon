@@ -9,16 +9,17 @@
 #' @param nb nombre de quantils créés
 #' @param pred1_lab Label pour la première prédiction dans le graphique
 #' @param pred2_lab Label pour la deuxième prédiction dans le graphique
+#' @param x_label Label pour la valeur réalisée dans le graphique
 #' @param y_label Label pour la valeur réalisée dans le graphique
 #' @param y_format Fonction utilisée pour formater l'axe des y dans le graphique (par exemple percent_format() ou dollar_format() du package scales)
-#' @param graphe_title une string qui donne le titre du modèle
 #' @export
+
 
 disloc <- function(data, pred1, pred2, expo, obs, nb = 10,
                    pred1_lab = "pred1", pred2_lab = "pred2",
+                   x_label = "ratio entre les prédictions",
                    y_label= "sinistralité",
-                   y_format = scales::number_format( big.mark = " ", decimal.mark = ","),
-                   graphe_title = NULL) {
+                   y_format = scales::number_format( big.mark = " ", decimal.mark = ",")) {
   # obligé de mettre les variables dans un enquo pour pouvoir les utiliser dans dplyr
   pred1_var <- enquo(pred1)
   pred2_var <- enquo(pred2)
@@ -80,14 +81,17 @@ disloc <- function(data, pred1, pred2, expo, obs, nb = 10,
     mutate(key = factor(key, levels = c("réalisé", pred1_lab, pred2_lab), ordered = TRUE))
 
   pl <- plotdata %>%
-    ggplot(aes(groupe, variable, color = key, linetype = key)) +
-    cowplot::theme_cowplot() + 
-    geom_line() + 
-    geom_point() +    
+    ggplot(aes(ratio_moyen, variable, color = key, linetype = key)) +
+    cowplot::theme_cowplot() +
+    geom_line() +
+    geom_point() +
     scale_color_manual(name = "", values = c(cbbPalette)) +
     scale_linetype_manual(name = "", values = c(3, 1, 1)) +
-    scale_x_continuous(breaks = dd$ratio_moyen, labels = dd$labs) +
-    xlab("ratio entre les prédictions") + ylab(y_label) +
+    #scale_x_continuous(breaks = dd$ratio_moyen, labels = dd$labs) +
+    labs(
+      x = x_label,
+      y = y_label
+    )+
     theme(axis.text.x = element_text(angle = 30, hjust = 1, vjust = 1)) +
     scale_y_continuous(labels =  y_format())
 
