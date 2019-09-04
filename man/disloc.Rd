@@ -6,7 +6,8 @@
 \usage{
 disloc(data, pred1, pred2, expo, obs, nb = 10, pred1_lab = "pred1",
   pred2_lab = "pred2", y_label = "sinistralité",
-  y_format = scales::percent_format, graphe_title = NULL)
+  y_format = scales::number_format(big.mark = " ", decimal.mark = ","),
+  graphe_title = NULL)
 }
 \arguments{
 \item{data}{data.frame  source}
