@@ -7,6 +7,7 @@
 #' @param expo exposure var
 #' @param obs observed result
 #' @param nb nombre de quantils créés
+#' @param obs_lab Label pour la valeur observée dans le graphique
 #' @param pred1_lab Label pour la première prédiction dans le graphique
 #' @param pred2_lab Label pour la deuxième prédiction dans le graphique
 #' @param x_label Label pour la valeur réalisée dans le graphique
@@ -16,6 +17,7 @@
 
 
 disloc <- function(data, pred1, pred2, expo, obs, nb = 10,
+                   obs_lab = "observé",
                    pred1_lab = "pred1", pred2_lab = "pred2",
                    x_label = "ratio entre les prédictions",
                    y_label= "sinistralité",
@@ -74,15 +76,16 @@ disloc <- function(data, pred1, pred2, expo, obs, nb = 10,
     gather(key, variable, !!obs_var, !!pred1_var, !!pred2_var) %>%
     ## Pas optimal mais je ne trouve pas mieux...
     mutate(key = case_when(
-      key == obs_name ~ "réalisé",
+      key == obs_name ~ obs_lab,
       key == pred1_name ~ pred1_lab,
       key == pred2_name ~ pred2_lab
     )) %>%
-    mutate(key = factor(key, levels = c("réalisé", pred1_lab, pred2_lab), ordered = TRUE))
+    mutate(key = factor(key, levels = c(obs_lab, pred1_lab, pred2_lab), ordered = TRUE))
 
   pl <- plotdata %>%
     ggplot(aes(ratio_moyen, variable, color = key, linetype = key)) +
     cowplot::theme_cowplot() +
+    scale_x_continuous(breaks = scales::pretty_breaks())+
     geom_line() +
     geom_point() +
     scale_color_manual(name = "", values = c(cbbPalette)) +
@@ -93,7 +96,7 @@ disloc <- function(data, pred1, pred2, expo, obs, nb = 10,
       y = y_label
     )+
     theme(axis.text.x = element_text(angle = 30, hjust = 1, vjust = 1)) +
-    scale_y_continuous(labels =  y_format())
+    scale_y_continuous(breaks = scales::pretty_breaks(), labels =  y_format())
 
   # écart au réalisé, pondéré
   ecart <- dd %>%

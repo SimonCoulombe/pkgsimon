@@ -4,10 +4,10 @@
 \alias{disloc}
 \title{disloc()}
 \usage{
-disloc(data, pred1, pred2, expo, obs, nb = 10, pred1_lab = "pred1",
-  pred2_lab = "pred2", x_label = "ratio entre les prédictions",
-  y_label = "sinistralité", y_format = scales::number_format(big.mark
-  = " ", decimal.mark = ","))
+disloc(data, pred1, pred2, expo, obs, nb = 10, obs_lab = "observé",
+  pred1_lab = "pred1", pred2_lab = "pred2",
+  x_label = "ratio entre les prédictions", y_label = "sinistralité",
+  y_format = scales::number_format(big.mark = " ", decimal.mark = ","))
 }
 \arguments{
 \item{data}{data.frame  source}
@@ -19,6 +19,8 @@ disloc(data, pred1, pred2, expo, obs, nb = 10, pred1_lab = "pred1",
 \item{obs}{observed result}
 
 \item{nb}{nombre de quantils créés}
+
+\item{obs_lab}{Label pour la valeur observée dans le graphique}
 
 \item{pred1_lab}{Label pour la première prédiction dans le graphique}
 
