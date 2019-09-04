@@ -17,7 +17,7 @@
 disloc <- function(data, pred1, pred2, expo, obs, nb = 10,
                    pred1_lab = "pred1", pred2_lab = "pred2",
                    y_label= "sinistralité",
-                   y_format = scales::percent_format,
+                   y_format = scales::number_format( big.mark = " ", decimal.mark = ","),
                    graphe_title = NULL) {
   # obligé de mettre les variables dans un enquo pour pouvoir les utiliser dans dplyr
   pred1_var <- enquo(pred1)
@@ -81,11 +81,12 @@ disloc <- function(data, pred1, pred2, expo, obs, nb = 10,
 
   pl <- plotdata %>%
     ggplot(aes(groupe, variable, color = key, linetype = key)) +
-    geom_line() + geom_point() +
-    pkgsimon::theme_dviz_grid()+
+    cowplot::theme_cowplot() + 
+    geom_line() + 
+    geom_point() +    
     scale_color_manual(name = "", values = c(cbbPalette)) +
     scale_linetype_manual(name = "", values = c(3, 1, 1)) +
-    scale_x_continuous(breaks = seq_along(dd$labs), labels = dd$labs) +
+    scale_x_continuous(breaks = dd$ratio_moyen, labels = dd$labs) +
     xlab("ratio entre les prédictions") + ylab(y_label) +
     theme(axis.text.x = element_text(angle = 30, hjust = 1, vjust = 1)) +
     scale_y_continuous(labels =  y_format())
